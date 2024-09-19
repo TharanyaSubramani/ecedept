@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On Duty - Kongu Engineering College</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            color: #003366;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            max-width: 80px;
+            vertical-align: middle;
+            margin-right: 15px;
+        }
+
+        header h1 {
+            display: inline-block;
+            font-size: 30px;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #0052cc;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            font-size: 16px;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        /* Content Section */
+        .content {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .content h3 {
+            color: #003366;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        /* Options Section with Cards */
+        .options {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 50px;
+        }
+
+        .option-card {
+            background-color: white;
+            border-radius: 10px;
+            width: 300px;
+            margin: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .option-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .option-card h4 {
+            font-size: 24px;
+            background-color: #0052cc;
+            color: white;
+            padding: 15px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+
+        .option-card p {
+            padding: 20px;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .option-card a {
+            display: block;
+            font-size: 16px;
+            margin-top: 20px;
+            background-color: #ffcc00;
+            color: #003366;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .option-card a:hover {
+            background-color: #003366;
+            color: white;
+        }
+
+        .option-card .response-link {
+            font-size: 16px;
+            margin-top: 10px;
+            padding-bottom: 15px;
+            color: #666;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: #ffcc00;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="KEC-Logo.png" alt="Kongu Engineering College Logo">
+        <h1>Kongu Engineering College, Perundurai</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#vision-mission">Vision & Mission</a></li>
+            <li><a href="#program-outcomes">Program Outcomes</a></li>
+            <li><a href="#about-hod">About HOD</a></li>
+            <li><a href="onduty.html">On Duty</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h3>On Duty Forms</h3>
+        <div class="options">
+            <!-- Pre OD Form Card -->
+            <div class="option-card">
+                <h4>Pre OD Form</h4>
+                <p>Submit your request for pre-approved leave using this form.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf62VHFYqtc50jFlPvbx975Rwu084rTTUwueOcPL9jcSwc_OA/viewform?usp=sf_link" target="_blank">Fill Pre OD Form</a>
+                <p class="response-link"><a href="https://docs.google.com/spreadsheets/d/1bCdvf73TNcVCrN8ECd46ZHjkYRSa7U4W0dnJtz4RrEc/edit?resourcekey=&gid=189841356#gid=189841356  " target="_blank">View Responses</a></p>
+            </div>
+
+            <!-- Post OD Submission Card -->
+            <div class="option-card">
+                <h4>Post OD Submission</h4>
+                <p>Submit your post-OD details after completing your leave.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScvV9pF1Wtbk5zQyZyA2M5Y8HT5Hlsj3rZ1pVlfD4iBSHLGxw/viewform?usp=sf_link" target="_blank">Fill Post OD Form</a>
+                <p class="response-link"><a href="https://docs.google.com/spreadsheets/d/1ZcKzOM8S6k7N7ahYvhP_gTh8M0Cj0C7Cwz4edb6vFA4/edit?usp=sharing" target="_blank">View Responses</a></p>
+            </div>
+
+            <!-- Leave Approval Form Card -->
+            <div class="option-card">
+                <h4>Leave Approval Form</h4>
+                <p>Submit your leave request for approval using this form.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeJQ1UoX9a5nZTQ1O2fP6c9cmK0z7y_dLZdtY3Aa0lK4Oo1jw/viewform?usp=sf_link" target="_blank">Fill Leave Approval Form</a>
+                <p class="response-link"><a href="https://docs.google.com/spreadsheets/d/1C5Gq2SaZ1zK8Rly0Kq6MiRlP9sXyHv1YfYtn4L7O6jE/edit?usp=sharing" target="_blank">View Responses</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Kongu Engineering College. All rights reserved.</p>
+        <p>Visit our official website: <a href="http://www.kongu.edu">kongu.edu</a></p>
+    </footer>
+</body>
+</html>
