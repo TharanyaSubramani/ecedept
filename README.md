@@ -55,4 +55,5 @@ This project is licensed under the **MIT License**.
 
 ## Contact
 
-For any inquiries or suggestions, please reach out to [your email/contact info].
+For any inquiries or suggestions, please reach out to tharanyasubramani5@gmail.com
+
