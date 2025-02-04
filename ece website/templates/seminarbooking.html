@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seminar Hall Booking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.4/main.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+
+        header, footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .container {
+            width: 60%;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .calendar-link {
+            color: #007bff;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Kongu Engineering College</h1>
+        <h2>Seminar Hall Booking</h2>
+    </header>
+
+    <!-- Booking Form Section -->
+    <div class="container">
+        <h1>Book a Seminar Hall</h1>
+        <form id="bookingForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Booking Date</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Time Slot</label>
+                <select id="time" name="time" required>
+                    <option value="9am-12pm">9 AM - 12 PM</option>
+                    <option value="1pm-4pm">1 PM - 4 PM</option>
+                    <option value="5pm-8pm">5 PM - 8 PM</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="purpose">Purpose</label>
+                <textarea id="purpose" name="purpose" rows="3" required></textarea>
+            </div>
+            <button type="submit">Book</button>
+            <div id="errorMessage" class="error-message" style="display:none;"></div>
+        </form>
+        <div>
+            <p>Click here to view the <a href="calender.html">Booking Calendar</a></p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Kongu Engineering College | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('bookingForm');
+            const errorMessageElement = document.getElementById('errorMessage');
+            let bookedEvents = JSON.parse(localStorage.getItem('bookedEvents')) || [];
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                // Get the input values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const date = document.getElementById('date').value;
+                const time = document.getElementById('time').value;
+
+                const eventId = `${date}-${time}`;
+                if (bookedEvents.some(event => event.id === eventId)) {
+                    errorMessageElement.style.display = 'block';
+                    errorMessageElement.textContent = 'This time slot is already booked. Please choose another time.';
+                    return;
+                }
+
+                // Clear any previous error messages
+                errorMessageElement.style.display = 'none';
+
+                // Add the event to the list
+                const newEvent = {
+                    id: eventId,
+                    title: `${name} (${time})`,
+                    start: date,
+                    allDay: true,
+                    description: `Purpose: ${document.getElementById('purpose').value}`,
+                };
+
+                // Save to the booked events list and localStorage
+                bookedEvents.push(newEvent);
+                localStorage.setItem('bookedEvents', JSON.stringify(bookedEvents));
+
+                // Clear the form
+                form.reset();
+
+                alert('Booking successfully added to the calendar!');
+            });
+        });
+    </script>
+</body>
+</html>

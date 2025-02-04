@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCL Comnet Interview Experience</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+        }
+
+        /* Container Styling */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        /* Logo Styling */
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 200px;
+        }
+
+        /* Title Styling */
+        .title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Posted By Styling */
+        .posted-by {
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .posted-by b {
+            color: #4CAF50;
+        }
+
+        /* Content Styling */
+        .content {
+            text-align: justify;
+            color: #555;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .content br {
+            margin: 10px 0;
+        }
+
+        /* Button Styling */
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAMAAABC4vDmAAAAn1BMVEX///8AYa7///0AYK////rm7/IAX6UAW6xId7YAYq3x+fYAWqOmvdUAU6YAXq/l7fK91N2Mq8z3+/xiir5kj7ssbqtIeLEAUacATaYAWK6Tr8oAVqYAYLX4/vsAWLPZ4+7F1OS0yNyrvdDM3OjZ5er08/EnbLKwxNIAT5kASpcASqjo8exxlL2BosUAQqV/rs+Zuc5Rf7Esc6vL29/X6efW/ugjAAADo0lEQVR4nO3XiXKbSBAA0LkAcSPMqUESCgQnMWyMk///th2QxbSchBSppLJb1c922WYOmp6hQYQghBBCCCGEEEIIIYQQQgghhBBCCCGEEPpN2OJvR3JHCCb+RER6zrcXrP5nuhfTnaZv51xf3nmHybtL3bTH+Shb5gNz/ULUbXs+nxsliupLCENqI+j9LaY4bPYPHbWkpUnX7B72kaFyF0/dhAc9bo0p/GBJJfeV/ONXfVXCyfL56OxT9rpMT4e+k77Fq4pTqr5nNg0CyqXfDe11cC3zG9//5/PGXLGhtOmNNQjdQGp/aaA2r8mREScac8u6hmKbFbfK0uKcLzNwq3gWLCYiAbPy1NgYk5FWXAcVgRYylnreKouZEPUoy+r1bLwsZDomfTLK4hTonv5FrbDh6klpOWy8O8Xe58uM1gjv8vajnpjLCyNt4gcqJH5NiTnUDhHTgGMzwu3lHpkA6bepNLYFxYSpz2wXDWwbAr0CVWqwKD0tfXk+NuBMxpAAxpR+PauVbL3/vFzvB7X4Ly/pIgh0vNJj9Ydy2Tu236skwVoCq6ggB0sPNd1mW0gsHvVuUAIIpJCaYZwF0x+v/TLjxydSgb2AJPPxuC0mFhU2pz+XD+Txk+7Jiy9iZVZyKWy9pYpoY6LIaN1Gc16perXsVl6BazXzlvQnEL0Jlk49Z+DyqYbjqGsELbvjxqAaqZfI7oa9Nph6q1ZWz0iv6tGyyu7dfoqfHC1mJOJg5UtvJanfDWrQo4Oyh5fbwEIjIyG8ApyqhM8NI8kAtath4VS3rdgWVeua4Mx39SArQUnN1IE4K5d9rkrP6H1pQ8cx2sckP/GZes743ZmIsAC78fQsnDdisfpecZBg7UdY4dS66qDmGs3aDJQEtf9o1+12ne3y26bmlvtZlUk2nEBQdPeNtTuXkPfdcttz6tegq5gKp31Fq+z6fmDsTT8I7Ckp6uj8m9Pplpz+DXK5OxjTDjM6kOSp+N2z/f1KohjzfN31tHNA39Ys9WOj9G4jvnqZSadncKAWS31VytTBcs1x3zwJoaJnB8nXUH5eyRNxUuneWPkzATXucXwAnOUyGAkjb98/ZGk3DzPTLOmHw6Vx1Pvndfljc9300FkTLowwdGBLfOcuv9dWQ42Yf27Nt5dUxtTxNWG8WraOAtaAjc9xMr2ef3dzMPWKs2L9Q8Z94+bPIz8a8NOJ/mOffBBCCCGEEEIIIYQQQgghhBBCCCGEEPo/+xf/60RIZD6AmQAAAABJRU5ErkJggg==" alt="HCL Logo">
+        </div>
+        <div class="title">HCL Comnet Interview Experience - 21st November</div>
+        <div class="posted-by">Posted by: <b>A D</b> ❤️ (10)</div>
+        <div class="content">
+            IT WAS A VERY NICE EXPERIENCE with HCL Comnet. It was the first interview I gave.<br><br>
+            The selection procedure was 5 rounds on our campus.<br><br>
+            The first-round elimination was based on the AMCAT results. You must have good grades in order to get selected through this round.<br><br>
+            The second round of elimination was based on the grammar test. It is quite easy.<br><br>
+            The third round was the GI (group interview), or you can say that your communication skills are evaluated in this round.<br><br>
+            The fourth round was the Technical Interview based on networking, your major projects, and C++.<br><br>
+            The final round was the HR round. The HR was a lady. She was very friendly. She asked about the questions based on your resume. So make sure that you should write only about your strengths.<br>
+            The final round was the HR round. The HR was a lady. She was very friendly. She asked about the questions based on your resume. So make sure that you should write only about your strengths.<br><br>
+            You can easily crack the interview if you have good knowledge of basic subjects like C++, DS, and Networking.<br><br>
+            All the Best!
+        </div>
+        
+    </div>
+    <footer>
+        <p>&copy; 2025 HCL Interview Experience | <a href="https://www.hcl.com">Official Website</a></p>
+    </footer>
+</body>
+</html>

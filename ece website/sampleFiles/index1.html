@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kongu Engineering College</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            color: #003366;
+            text-align: center;
+        }
+
+        header img {
+            max-width: 80px;
+            vertical-align: middle;
+            margin-right: 15px;
+        }
+
+        header h1 {
+            display: inline-block;
+            font-size: 30px;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #0052cc;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            font-size: 16px;
+            color: white;
+        }
+
+        /* Banner Section */
+        .banner {
+            /* Replace with your local path */
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .banner h2 {
+            font-size: 48px;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease, color 0.3s ease; /* Added transition */
+        }
+
+        .banner h2:hover {
+            transform: scale(1.05); /* Hover effect */
+            color: #ffcc00; /* Change color on hover */
+        }
+
+        /* Content Section */
+        .content {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .content h3 {
+            color: #003366;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        /* About HOD Section */
+        .about-hod {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 50px;
+            background-color: #f9f9f9;
+            text-align: left;
+        }
+        .about-hod img {
+            max-width: 300px;
+            margin-right: 50px;
+            border-radius: 10px;
+        }
+        .about-hod .hod-details {
+            max-width: 600px;
+        }
+        .about-hod h4 {
+            font-size: 28px;
+            color: #003366;
+            margin-bottom: 15px;
+        }
+        .about-hod p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+        }
+        /* Statistics Section */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            background-color: #e6f0ff;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .stats div {
+            flex: 1;
+            margin: 0 15px;
+        }
+
+        .stats h3 {
+            font-size: 48px;
+            color: #003366;
+            margin-bottom : 10px;
+        }
+
+        .stats p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* Vision & Mission Section */
+        .vision-mission {
+            padding: 50px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .vision-mission h3 {
+            font-size: 32px;
+            color: #003366;
+            margin-bottom: 20px;
+        }
+
+        .vision-mission p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Program Outcomes Section */
+        .program-outcomes {
+            padding: 50px;
+            background-color: #f9f9f9;
+            text-align: left;
+        }
+
+        .program-outcomes h3 {
+            font-size: 32px;
+            color: #003366;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .program-outcomes ul {
+            list-style-type: disc;
+            padding-left: 40px;
+        }
+
+        .program-outcomes li {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='KEC-Logo.png') }}" alt="Kongu Engineering College Logo">
+        <h1>Kongu Engineering College,Perundurai</h1>
+    </header>
+
+
+
+
+    <nav>
+        <ul>
+            <li><a href="#vision-mission">Vision & Mission</a></li>
+            <li><a href="#program-outcomes">Program Outcomes</a></li>
+            <li><a href="#about-hod">About HOD</a></li>
+            <li><a href="{{ url_for('faculty') }}">faculty</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#internals">Internals</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="{{ url_for('seminarbooking') }}">Seminar Booking</a></li>
+            <li><a href="{{ url_for('onduty') }}">On Duty</a></li> 
+            {% if 'user' in session %}
+            <!-- If the user is logged in, show their email and a logout option -->
+            <li style="color: #ffffff;">Welcome, {{ session['user'] }}</li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        {% else %}
+            <!-- If no user is logged in, show the login link -->
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+        {% endif %}
+
+        </ul>
+    </nav>
+    
+     <div class="banner" style="background-image: url('{{ url_for('static', filename='ece.jpg') }}');">
+        <h2>Welcome to the Department of Electronics & Communication</h2>
+    </div> 
+    <!-- <div class="banner"></div>
+        <video autoplay muted loop>
+            <source src="{{ url_for('static', filename='ece.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h2>Welcome to the Department of Electronics and Communication Engineering</h2>
+        <button>Learn More</button>
+    </div> -->
+
+
+    <div class="content" id="vision-mission">
+        <h3>Vision & Mission</h3>
+        <p>Our mission is to provide quality education and gird students with comprehensive knowledge in Electronics & Communication to enable them to become leaders in their fields.</p>
+    </div>
+    <div class="program-outcomes" id="program-outcomes">
+        <h3>Program Outcomes</h3>
+        <ul>
+            <li>PO1: Engineering Knowledge - Apply knowledge of mathematics, science, and engineering fundamentals to the solution of complex engineering problems.</li>
+            <li>PO2: Problem Analysis - Identify, formulate, research, and analyze complex engineering problems to reach substantiated conclusions.</li>
+            <li>PO3: Design and Development - Design solutions for complex engineering problems that meet specified needs with appropriate consideration for public health, safety, and welfare.</li>
+            <li>PO4: Conduct Investigations - Use research-based knowledge and methods to conduct investigations of complex problems.</li>
+            <li>PO5: Modern Tool Usage - Create, select, and apply appropriate techniques, resources, and modern engineering and IT tools to complex engineering contexts.</li>
+            <li>PO6: The Engineer and Society - Apply reasoning informed by the contextual knowledge to assess societal, health, safety, legal, and cultural issues associated with professional engineering practice.</li>
+            <li>PO7: Environment and Sustainability - Understand the impact of professional engineering solutions in societal and environmental contexts, and demonstrate knowledge of sustainable development.</li>
+            <li>PO8: Ethics - Apply ethical principles and commit to professional ethics and responsibilities in engineering practice.</li>
+            <li>PO9: Individual and Team Work - Function effectively as an individual or as a member or leader in diverse teams, and in multidisciplinary settings.</li>
+            <li>PO10: Communication - Communicate effectively on complex engineering activities with the engineering community and with society at large.</li>
+        </ul>
+    </div>
+    <div class="about-hod" id="about-hod">
+        <img src="{{ url_for('static', filename='hod.jpeg') }}" alt="HOD Image">
+        <div class="hod-details">
+            <h4>About Our HOD</h4>
+            <p>Dr. John Doe has over 20 years of experience in the field of electronics and communication engineering and is committed to fostering innovation through research and collaboration.</p>
+        </div>
+    </div>
+    <div class="content" id="contact">
+        <h3>Contact Us</h3>
+        <p>For more information, please reach out to us:</p>
+        <p>Email: <a href="mailto:ece@kongu.edu">ece@kongu.edu</a></p>
+        <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+    </div>
+    <footer>
+        <p>&copy; 2023 Kongu Engineering College. All rights reserved.</p>
+        <p>Visit our official website: <a href="http://www.kongu.edu" style="color: rgb(255, 255, 255);">kongu.edu</a></p>
+    </footer>
+</body>
+</html>

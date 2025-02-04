@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            color: #003366;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header img {
+            max-width: 80px;
+            vertical-align: middle;
+            margin-right: 15px;
+        }
+
+        header h1 {
+            display: inline-block;
+            font-size: 24px;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #0052cc;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        /* Dashboard Styles */
+        .dashboard {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 20px;
+            flex-wrap: wrap;
+        }
+
+        .dashboard h1 {
+            width: 100%;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 15px;
+            width: calc(45% - 20px);
+            min-width: 300px;
+        }
+
+        .section-header {
+            background-color: #0ec314;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        .section-header1 {
+            background-color: #d3440b;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .student-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s;
+        }
+
+        .student-item:hover {
+            background-color: #f9f9f9;
+        }
+
+        .student-item:last-child {
+            border-bottom: none;
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <img src="{{ url_for('static', filename='KEC-Logo.png') }}" alt="Kongu Engineering College Logo">
+        <h1>Kongu Engineering College, Perundurai</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('faculty') }}">Faculty</a></li>
+            <li><a href="{{ url_for('achievements') }}">Achievements</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="{{ url_for('onduty') }}">On Duty</a></li> 
+            {% if 'user' in session %}
+            <li style="color: white;">Welcome, {{ session['user'] }}</li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <div class="dashboard">
+        <h1>Applied Pre-OD</h1>
+        <div class="section">
+            <div class="section-header">Approved Applications</div>
+            <ul class="list-group">
+                {% for student in students %}
+                {% if student['approved'] %}
+                <li class="student-item">
+                    <strong>Register Number:</strong> {{ student['register_number'] }}<br>
+                    <strong>Purpose:</strong> {{ student['purpose'] }}<br>
+                    <p>Status: Approved</p>
+                </li>
+                {% endif %}
+                {% endfor %}
+                {% if not students | selectattr('approved', 'equalto', true) | list %}
+                <li class="student-item">No approved applications found.</li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="section">
+            <div class="section-header1">Under Review Applications</div>
+            <ul class="list-group">
+                {% for student in students %}
+                {% if not student['approved'] %}
+                <li class="student-item">
+                    <strong>Register Number:</strong> {{ student['register_number'] }}<br>
+                    <strong>Purpose:</strong> {{ student['purpose'] }}<br>
+                    <p>Status: Under Review</p>
+                </li>
+                {% endif %}
+                {% endfor %}
+                {% if not students | selectattr('approved', 'equalto', false) | list %}
+                <li class="student-item">No applications under review.</li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2023 Kongu Engineering College. All rights reserved.</p>
+        <p>Visit our official website: <a href="http://www.kongu.edu">kongu.edu</a></p>
+    </footer>
+
+</body>
+</html>

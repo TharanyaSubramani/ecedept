@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Student Period Details</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+    
+        /* Header Styles */
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            color: #003366;
+            text-align: center;
+        }
+    
+        header img {
+            max-width: 80px;
+            vertical-align: middle;
+            margin-right: 15px;
+        }
+    
+        header h1 {
+            display: inline-block;
+            font-size: 30px;
+        }
+    
+        /* Navigation Styles */
+        nav {
+            background-color: #0052cc;
+            padding: 10px 0;
+        }
+    
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+    
+        nav ul li {
+            margin: 0 20px;
+        }
+    
+        nav ul li a {
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
+        }
+    
+        /* Form Styles */
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+    
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+    
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+    
+        input[type="text"], input[type="date"], input[type="time"], input[type="email"], input[type="file"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: calc(100% - 22px);
+            box-sizing: border-box;
+        }
+    
+        input[type="submit"] {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #28a745;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    
+        .form-group {
+            margin-bottom: 15px;
+        }
+    
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+    
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+    
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <img src="{{ url_for('static', filename='KEC-Logo.png') }}" alt="Kongu Engineering College Logo">
+        <h1>Kongu Engineering College, Perundurai</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <a href="{{ url_for('index') }}" style="color: white;">Home</a>
+            <li><a href="{{ url_for('faculty') }}">Faculty</a></li>
+            <li><a href="{{ url_for('achievements') }}">Achievements</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="{{ url_for('seminarbooking') }}">Seminar Booking</a></li>
+            <li><a href="{{ url_for('onduty') }}">On Duty</a></li> 
+            {% if 'user' in session %}
+            <li style="color: #ffffff;">Welcome, {{ session['user'] }}</li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        {% else %}
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+        {% endif %}
+        </ul>
+    </nav>
+
+    <!-- Form Section -->
+    <div class="container">
+        <h1>Submit Student Period Details</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="register_number">Register Number:</label>
+                <input type="text" id="register_number" name="register_number" required>
+            </div>
+            <div class="form-group">
+                <label for="studentemail">Email:</label>
+                <input type="email" id="studentemail" name="studentemail" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="date_from">On Duty Date From:</label>
+                <input type="date" id="date_from" name="date_from" required>
+            </div>
+            <div class="form-group">
+                <label for="date_to">On Duty Date To:</label>
+                <input type="date" id="date_to" name="date_to" required>
+            </div>
+            <div class="form-group">
+                <label for="time_from">Time From:</label>
+                <input type="time" id="time_from" name="time_from" required>
+            </div>
+            <div class="form-group">
+                <label for="time_to">Time To:</label>
+                <input type="time" id="time_to" name="time_to" required>
+            </div>
+            <div class="form-group">
+                <label for="purpose">Purpose:</label>
+                <input type="text" id="purpose" name="purpose" required>
+            </div>
+            <div class="form-group">
+                <label for="event_name">Event Name:</label>
+                <input type="text" id="event_name" name="event_name" required>
+            </div>
+            <div class="form-group">
+                <label for="venue">Venue:</label>
+                <input type="text" id="venue" name="venue" required>
+            </div>
+            <div class="form-group">
+                <label for="class_advisor">Class Advisor Name: </label>
+                <input type="text" id="class_advisor" name="class_advisor" required>
+            </div>
+            <div class="form-group">
+                <label for="teacheremail">Class Advisor Email:</label>
+                <input type="email" id="teacheremail" name="teacheremail" required>
+            </div>
+            <div class="form-group">
+                <label for="supporting_file">Upload Supporting Document (PDF Only):</label>
+                <input type="file" id="supporting_file" name="supporting_file" accept="application/pdf" required>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2023 Kongu Engineering College. All rights reserved.</p>
+        <p>Visit our official website: <a href="http://www.kongu.edu">kongu.edu</a></p>
+    </footer>
+</body>
+</html>

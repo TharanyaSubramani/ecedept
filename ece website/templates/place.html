@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Experiences</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #eef2f3, #8e9eab);
+      color: #333;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Company Section */
+    .company-section {
+      text-align: center;
+      margin-bottom: 40px;
+      background: #f7fafc;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .company-logo {
+      width: 120px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .company-section h2 {
+      font-size: 26px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .company-section a {
+      color: #0073e6;
+      font-size: 18px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .company-section a:hover {
+      color: #005bb5;
+      text-decoration: underline;
+    }
+
+    /* Share Experience Section */
+    .share-experience-section {
+      margin-top: 30px;
+      background: #f7fafc;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .share-experience-section h2 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .share-experience-section textarea {
+      width: 100%;
+      height: 150px;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .share-experience-section input[type="file"] {
+      margin-bottom: 10px;
+    }
+
+    .share-experience-section button {
+      background-color: #0073e6;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .share-experience-section button:hover {
+      background-color: #005bb5;
+    }
+
+    /* Experiences Section */
+    .experience-section {
+      margin-top: 20px;
+    }
+
+    .experience-card {
+      background: linear-gradient(to bottom, #ffffff, #f7fafc);
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .experience-card h3 {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .experience-card p {
+      font-size: 14px;
+      color: #666;
+      margin: 0;
+    }
+
+    .author {
+      color: #444;
+      font-weight: bold;
+    }
+
+    .likes {
+      color: #e63946;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .likes:hover {
+      text-decoration: underline;
+      color: #d62828;
+    }
+
+    .experience-card a {
+      text-decoration: none;
+      color: #0056b3;
+      font-weight: bold;
+    }
+
+    .experience-card a:hover {
+      color: #002f66;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+      background: #f7fafc;
+      color: #555;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    footer a {
+      color: #0073e6;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Company Section -->
+    <div class="company-section">
+      <center><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAMAAABC4vDmAAAAn1BMVEX///8AYa7///0AYK////rm7/IAX6UAW6xId7YAYq3x+fYAWqOmvdUAU6YAXq/l7fK91N2Mq8z3+/xiir5kj7ssbqtIeLEAUacATaYAWK6Tr8oAVqYAYLX4/vsAWLPZ4+7F1OS0yNyrvdDM3OjZ5er08/EnbLKwxNIAT5kASpcASqjo8exxlL2BosUAQqV/rs+Zuc5Rf7Esc6vL29/X6efW/ugjAAADo0lEQVR4nO3XiXKbSBAA0LkAcSPMqUESCgQnMWyMk///th2QxbSchBSppLJb1c922WYOmp6hQYQghBBCCCGEEEIIIYQQQgghhBBCCCGEEPpN2OJvR3JHCCb+RER6zrcXrP5nuhfTnaZv51xf3nmHybtL3bTH+Shb5gNz/ULUbXs+nxsliupLCENqI+j9LaY4bPYPHbWkpUnX7B72kaFyF0/dhAc9bo0p/GBJJfeV/ONXfVXCyfL56OxT9rpMT4e+k77Fq4pTqr5nNg0CyqXfDe11cC3zG9//5/PGXLGhtOmNNQjdQGp/aaA2r8mREScac8u6hmKbFbfK0uKcLzNwq3gWLCYiAbPy1NgYk5FWXAcVgRYylnreKouZEPUoy+r1bLwsZDomfTLK4hTonv5FrbDh6klpOWy8O8Xe58uM1gjv8vajnpjLCyNt4gcqJH5NiTnUDhHTgGMzwu3lHpkA6bepNLYFxYSpz2wXDWwbAr0CVWqwKD0tfXk+NuBMxpAAxpR+PauVbL3/vFzvB7X4Ly/pIgh0vNJj9Ydy2Tu236skwVoCq6ggB0sPNd1mW0gsHvVuUAIIpJCaYZwF0x+v/TLjxydSgb2AJPPxuC0mFhU2pz+XD+Txk+7Jiy9iZVZyKWy9pYpoY6LIaN1Gc16perXsVl6BazXzlvQnEL0Jlk49Z+DyqYbjqGsELbvjxqAaqZfI7oa9Nph6q1ZWz0iv6tGyyu7dfoqfHC1mJOJg5UtvJanfDWrQo4Oyh5fbwEIjIyG8ApyqhM8NI8kAtath4VS3rdgWVeua4Mx39SArQUnN1IE4K5d9rkrP6H1pQ8cx2sckP/GZes743ZmIsAC78fQsnDdisfpecZBg7UdY4dS66qDmGs3aDJQEtf9o1+12ne3y26bmlvtZlUk2nEBQdPeNtTuXkPfdcttz6tegq5gKp31Fq+z6fmDsTT8I7Ckp6uj8m9Pplpz+DXK5OxjTDjM6kOSp+N2z/f1KohjzfN31tHNA39Ys9WOj9G4jvnqZSadncKAWS31VytTBcs1x3zwJoaJnB8nXUH5eyRNxUuneWPkzATXucXwAnOUyGAkjb98/ZGk3DzPTLOmHw6Vx1Pvndfljc9300FkTLowwdGBLfOcuv9dWQ42Yf27Nt5dUxtTxNWG8WraOAtaAjc9xMr2ef3dzMPWKs2L9Q8Z94+bPIz8a8NOJ/mOffBBCCCGEEEIIIYQQQgghhBBCCCGEEPo/+xf/60RIZD6AmQAAAABJRU5ErkJggg==" alt="HCL Logo" class="company-logo"></center>
+      <a href="https://www.hcltech.com" target="_blank">www.hcltech.com</a>
+    </div>
+
+    <!-- Share Experience Section -->
+    <div class="share-experience-section">
+      <h2>Share Your Interview Experience</h2>
+      <textarea placeholder="Share your experience here..."></textarea><br>
+      <input type="file" id="media-upload" accept="image/*, video/*"><br>
+      <button onclick="publishExperience()">Publish</button>
+    </div>
+
+    <!-- Experiences Section -->
+    <div class="experience-section">
+      <!-- Experience Card 1 -->
+      <div class="experience-card">
+        <a href="theory.html">
+          <h3>HCL Comnet Interview Experience - 21st November</h3>
+        </a>
+        <p>Posted by: <span class="author">A D</span> <span class="likes" onclick="likePost(this)">❤️ (10)</span></p>
+      </div>
+
+      <!-- Experience Card 2 -->
+      <div class="experience-card">
+        <a href="wipro-hcl-experience.html">
+          <h3>Wipro & HCL Interview Experience - 24.06.2021</h3>
+        </a>
+        <p>Posted by: <span class="author">Naina</span> <span class="likes" onclick="likePost(this)">❤️ (216)</span></p>
+      </div>
+
+      <!-- Experience Card 3 -->
+      <div class="experience-card">
+        <a href="hcl-coimbatore-jan-2017.html">
+          <h3>HCL Interview Experience - Coimbatore, Jan 2017</h3>
+        </a>
+        <p>Posted by: <span class="author">Meena</span> <span class="likes" onclick="likePost(this)">❤️ (418)</span></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Company Experiences. All rights reserved. | <a href="#">Privacy Policy</a>
+  </footer>
+
+  <script>
+    // Function to handle likes
+    function likePost(element) {
+      let likesText = element.innerText;
+      let likesCount = parseInt(likesText.match(/\d+/)[0]);
+      likesCount++;
+      element.innerText = `❤️ (${likesCount})`;
+    }
+
+    // Function to handle publishing new experiences
+    function publishExperience() {
+      alert("Your experience has been shared!");
+    }
+  </script>
+</body>
+</html>

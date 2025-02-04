@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <header>
+        <img src="static/KEC-Logo.png" alt="Kongu Engineering College Logo">
+        <h1>Kongu Engineering College - Seminar Hall Booking</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <a href="{{ url_for('index') }}" style="color: white;">Home</a>
+
+
+            <li><a href="{{ url_for('achievements') }}">Achievements</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="{{ url_for('onduty') }}">On Duty</a></li>
+            {% if 'user' in session %}
+            <li style="color: #ffffff;">Welcome, {{ session['user'] }}</li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    
+    <style>
+        /* Header Styles */
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            color: #003366;
+            text-align: center;
+        }
+    
+        header img {
+            max-width: 80px;
+            vertical-align: middle;
+            margin-right: 15px;
+        }
+    
+        header h1 {
+            display: inline-block;
+            font-size: 30px;
+        }
+    
+        /* Navigation Styles */
+        nav {
+            background-color: #0052cc;
+            padding: 10px 0;
+        }
+    
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+    
+        nav ul li {
+            margin: 0 20px;
+        }
+    
+        nav ul li a {
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
+        }
+    
+        nav ul li a:hover {
+            color: #ffcc00;
+            transition: color 0.3s ease;
+        }
+    </style>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #003366;
+        }
+
+        .faculty-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .faculty-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .faculty-card:hover {
+            transform: scale(1.05);
+        }
+
+        .faculty-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .faculty-info {
+            padding: 15px;
+        }
+
+        .faculty-name {
+            font-size: 20px;
+            color: #0052cc;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .faculty-qualification {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .faculty-field {
+            color: #999;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Meet Our Faculty</h1>
+
+    <div class="faculty-container">
+        <!-- Faculty 1 -->
+        <div class="faculty-card">
+            <img src="{{ url_for('static', filename='images/kasthuri.jpg') }}" alt="Dr.N.Kasthuri" class="faculty-image">
+            <div class="faculty-info">
+                <h3 class="faculty-name">Dr.N.Kasthuri</h3>
+                <p class="faculty-qualification">BE., ME., PhD</p>
+                <p class="faculty-field">Signal and Image Processing, Embedded Systems, Soft Computing</p>
+            </div>
+        </div>
+
+        <!-- Faculty 2 -->
+        <div class="faculty-card">
+            <img src="{{ url_for('static', filename='images/Meeradevi.jpg') }}" alt="MeeraDevi Thiagarajan" class="faculty-image">
+            <div class="faculty-info">
+                <h3 class="faculty-name">MeeraDevi Thiagarajan</h3>
+                <p class="faculty-qualification">BE., ME., PhD</p>
+                <p class="faculty-field">Signal and Image Processing</p>
+            </div>
+        </div>
+
+        <!-- Faculty 3 -->
+        <div class="faculty-card">
+            <img src="{{ url_for('static', filename='images/nirmaladevi.jpg') }}" alt="Dr. P. Nirmala devi" class="faculty-image">
+            <div class="faculty-info">
+                <h3 class="faculty-name">Dr. P. Nirmala devi</h3>
+                <p class="faculty-qualification">BE., ME., PhD</p>
+                <p class="faculty-field">Image Processing</p>
+            </div>
+        </div>
+
+        <!-- Faculty 4 -->
+        <div class="faculty-card">
+            <img src="{{ url_for('static', filename='images/malathi.jpg') }}" alt="Dr.D.Malathi" class="faculty-image">
+            <div class="faculty-info">
+                <h3 class="faculty-name">Dr.D.Malathi</h3>
+                <p class="faculty-qualification">BE., ME., PhD</p>
+                <p class="faculty-field">Low Power VLSI Signal Processing</p>
+            </div>
+        </div>
+
+        <!-- Faculty 5 -->
+        <div class="faculty-card">
+            <img src="{{ url_for('static', filename='images/sivaranjini.jpg') }}" alt="Dr.P.Sivaranjani" class="faculty-image">
+            <div class="faculty-info">
+                <h3 class="faculty-name">Dr.P.Sivaranjani</h3>
+                <p class="faculty-qualification">BE., ME., PhD</p>
+                <p class="faculty-field">Physical design of VLSI, Embedded systems</p>
+            </div>
+        </div>
+
+        <!-- Faculty 6 -->
+        <div class="faculty-card">
+            <img src="{{ url_for('static', filename='images/maheswaran.jpg') }}" alt="Dr. Maheswaran S" class="faculty-image">
+            <div class="faculty-info">
+                <h3 class="faculty-name">Dr. Maheswaran S</h3>
+                <p class="faculty-qualification">BE., ME., PhD</p>
+                <p class="faculty-field">Embedded Systems, IoT, Instrumentation and Automation</p>
+            </div>
+        </div>
+
+        <!-- Faculty 7 -->
+        <div class="faculty-card">
+            <img src="{{ url_for('static', filename='images/sasikala.jpg') }}" alt="Dr.S.Sasikala" class="faculty-image">
+            <div class="faculty-info">
+                <h3 class="faculty-name">Dr.S.Sasikala</h3>
+                <p class="faculty-qualification">BE., ME., PhD</p>
+                <p class="faculty-field">VLSI Signal Processing, Biomedical Signal Processing</p>
+            </div>
+        </div>
+
+        <!-- Faculty 8 -->
+        <div class="faculty-card">
+            <img src="{{ url_for('static', filename='images/jude.jpg') }}" alt="Dr. M. Joseph Auxilius Jude" class="faculty-image">
+            <div class="faculty-info">
+                <h3 class="faculty-name">Dr. M. Joseph Auxilius Jude</h3>
+                <p class="faculty-qualification">BE., ME., PhD</p>
+                <p class="faculty-field">Computer Networks, Wireless Networks</p>
+            </div>
+        </div>
+
+        <!-- Faculty 9 -->
+        <div class="faculty-card">
+            <img src="{{ url_for('static', filename='images/vennila.jpg') }}" alt="Ms.Vennila" class="faculty-image">
+            <div class="faculty-info">
+                <h3 class="faculty-name">Ms.Vennila</h3>
+                <p class="faculty-qualification">BE., ME., PhD</p>
+                <p class="faculty-field">RF and Antenna Design, Metamaterial Antennas, UWB Antenna, EBG Antenna, Defected Ground Structure Antenna, SDR</p>
+            </div>
+        </div>
+
+        <!-- Faculty 10 -->
+        <div class="faculty-card">
+            <img src="{{ url_for('static', filename='images/senthilkumar.jpg') }}" alt="Dr. K.Senthil Kumar" class="faculty-image">
+            <div class="faculty-info">
+                <h3 class="faculty-name">Dr. K.Senthil Kumar</h3>
+                <p class="faculty-qualification">BE., M.Tech., PhD</p>
+                <p class="faculty-field">Nanoscience and Technology</p>
+            </div>
+        </div>
+
+        <!-- Faculty 11 -->
+        <div class="faculty-card">
+            <img src="{{ url_for('static', filename='images/arulmurugan.jpg') }}" alt="Dr. A.Arulmurugan" class="faculty-image">
+            <div class="faculty-info">
+                <h3 class="faculty-name">Dr. A.Arulmurugan</h3>
+                <p class="faculty-qualification">BE., ME., PhD</p>
+                <p class="faculty-field">VLSI Design and Test</p>
+            </div>
+        </div>
+
+        <!-- Faculty 12 -->
+        <div class="faculty-card">
+            <img src="{{ url_for('static', filename='images/deepa.jpg') }}" alt="G.DEEPA" class="faculty-image">
+            <div class="faculty-info">
+                <h3 class="faculty-name">G.DEEPA</h3>
+                <p class="faculty-qualification">BE., ME</p>
+                <p class="faculty-field">VLSI Design, Embedded Systems</p>
+            </div>
+        </div>
+
+    </div>
+    <footer>
+        <p>&copy; 2023 Kongu Engineering College. All rights reserved.</p>
+        <p>Visit our official website: <a href="http://www.kongu.edu" style="color: rgb(255, 255, 255);">kongu.edu</a></p>
+    </footer>
+    
+    <style>
+        /* Footer Styles */
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+    
+        footer a:hover {
+            color: #ffcc00;
+            transition: color 0.3s ease;
+        }
+    </style>
+    
+
+</body>
+</html>
